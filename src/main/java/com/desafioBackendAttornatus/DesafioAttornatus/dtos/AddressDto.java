@@ -13,14 +13,13 @@ public class AddressDto implements Serializable {
     @NotBlank(message = "Campo requerido")
     private String zipCode;
 
-    @NotBlank(message = "Campo requerido")
     private Integer number;
 
     @NotBlank(message = "Campo requerido")
     private String city;
 
-    @NotBlank(message = "Campo requerido")
     private Long personId;
+
 
     public AddressDto(){
     }
@@ -36,11 +35,11 @@ public class AddressDto implements Serializable {
 
     public AddressDto(Address address) {
         id = address.getId();
-        this.publicArea = address.getPublicArea();
-        this.zipCode = address.getZipCode();
-        this.number = address.getNumber();
-        this.city = address.getCity();
-        this.personId = address.getPerson().getId();
+        publicArea = address.getPublicArea();
+        zipCode = address.getZipCode();
+        number = address.getNumber();
+        city = address.getCity();
+        personId = address.getPerson().getId();
     }
 
     public Long getId() {

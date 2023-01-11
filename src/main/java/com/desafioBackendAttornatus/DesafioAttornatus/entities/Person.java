@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,7 +20,7 @@ public class Person implements Serializable {
     private LocalDate birthday;
 
     @OneToMany(mappedBy = "person")
-    private Set<Address> adresses = new HashSet<>();
+    private List<Address> adresses = new ArrayList<>();
 
     public Person(){
     }
@@ -53,7 +55,7 @@ public class Person implements Serializable {
         this.birthday = birthday;
     }
 
-    public Set<Address> getAdresses() {
+    public List<Address> getAdresses() {
         return adresses;
     }
 }

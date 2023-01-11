@@ -36,7 +36,7 @@ public class PersonDto implements Serializable {
         birthday = person.getBirthday();
     }
 
-    public PersonDto(Person person, Set<Address> addresses) {
+    public PersonDto(Person person, List<Address> addresses) {
         this(person);
         addresses.forEach(adds -> this.addresses.add(new AddressDto(adds)));
     }

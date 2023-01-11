@@ -39,7 +39,7 @@ public class PersonService {
     public PersonDto findByIdPerson(Long id){
         Optional<Person> personOptional = personRepository.findById(id);
         Person person = personOptional.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
-        return new PersonDto(person, person.getAdresses());
+        return new PersonDto(person);
     }
 
     @Transactional
