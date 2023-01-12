@@ -68,4 +68,9 @@ public class AddressService {
         }
     }
 
+    public List<AddressDto> findByPerson(String name){
+        Person person = personRepository.findByName(name);
+        List<Address> list = addressRepository.findByPerson(person);
+        return list.stream().map(x -> new AddressDto(x)).collect(Collectors.toList());
+    }
 }

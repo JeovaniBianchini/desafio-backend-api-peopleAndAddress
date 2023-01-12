@@ -48,4 +48,12 @@ public class AddressController {
     }
 
 
+    @GetMapping(value = "/person")
+    public ResponseEntity<List<AddressDto>> list(@RequestParam(value = "name") String name){
+        List<AddressDto> list = addressService.findByPerson(name);
+        return ResponseEntity.ok().body(list);
+    }
+
+
+
 }
