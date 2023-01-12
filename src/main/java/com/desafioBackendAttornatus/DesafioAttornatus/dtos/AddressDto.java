@@ -1,6 +1,7 @@
 package com.desafioBackendAttornatus.DesafioAttornatus.dtos;
 
 import com.desafioBackendAttornatus.DesafioAttornatus.entities.Address;
+import com.desafioBackendAttornatus.DesafioAttornatus.entities.enums.AddressType;
 import jakarta.validation.constraints.NotBlank;
 
 import java.io.Serializable;
@@ -18,19 +19,22 @@ public class AddressDto implements Serializable {
     @NotBlank(message = "Campo requerido")
     private String city;
 
+    private AddressType type;
+
     private Long personId;
 
 
     public AddressDto(){
     }
 
-    public AddressDto(Long id, String publicArea, String zipCode, Integer number, String city, Long personId) {
+    public AddressDto(Long id, String publicArea, String zipCode, Integer number, String city, Long personId, AddressType type) {
         this.id = id;
         this.publicArea = publicArea;
         this.zipCode = zipCode;
         this.number = number;
         this.city = city;
         this.personId = personId;
+        this.type = type;
     }
 
     public AddressDto(Address address) {
@@ -40,6 +44,7 @@ public class AddressDto implements Serializable {
         number = address.getNumber();
         city = address.getCity();
         personId = address.getPerson().getId();
+        type = address.getType();
     }
 
     public Long getId() {
@@ -88,5 +93,13 @@ public class AddressDto implements Serializable {
 
     public void setPersonId(Long personId) {
         this.personId = personId;
+    }
+
+    public AddressType getType() {
+        return type;
+    }
+
+    public void setType(AddressType type) {
+        this.type = type;
     }
 }

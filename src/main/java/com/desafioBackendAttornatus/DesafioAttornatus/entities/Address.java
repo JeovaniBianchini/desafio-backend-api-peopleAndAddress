@@ -1,5 +1,6 @@
 package com.desafioBackendAttornatus.DesafioAttornatus.entities;
 
+import com.desafioBackendAttornatus.DesafioAttornatus.entities.enums.AddressType;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -15,6 +16,7 @@ public class Address implements Serializable {
     private String zipCode;
     private Integer number;
     private String city;
+    private AddressType type;
 
     @ManyToOne
     @JoinColumn(name = "person_id")
@@ -23,13 +25,14 @@ public class Address implements Serializable {
     public Address(){
     }
 
-    public Address(Long id, String publicArea, String zipCode, Integer number, String city, Person person) {
+    public Address(Long id, String publicArea, String zipCode, Integer number, String city, Person person, AddressType type) {
         this.id = id;
         this.publicArea = publicArea;
         this.zipCode = zipCode;
         this.number = number;
         this.city = city;
         this.person = person;
+        this.type = type;
     }
 
     public Long getId() {
@@ -78,5 +81,13 @@ public class Address implements Serializable {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public AddressType getType() {
+        return type;
+    }
+
+    public void setType(AddressType type) {
+        this.type = type;
     }
 }

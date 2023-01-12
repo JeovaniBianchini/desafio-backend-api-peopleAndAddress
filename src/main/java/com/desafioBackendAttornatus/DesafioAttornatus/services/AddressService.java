@@ -35,6 +35,7 @@ public class AddressService {
         address.setNumber(dto.getNumber());
         address.setCity(dto.getCity());
         address.setPerson(new Person(dto.getPersonId(), null, null));
+        address.setType(dto.getType());
         address = addressRepository.save(address);
         return new AddressDto(address);
     }
@@ -61,6 +62,7 @@ public class AddressService {
             address.setNumber(dto.getNumber());
             address.setCity(dto.getCity());
             address.setPerson(new Person(dto.getPersonId(), null, null));
+            address.setType(dto.getType());
             address = addressRepository.save(address);
             return new AddressDto(address);
         } catch (EntityNotFoundException e){
