@@ -5,6 +5,7 @@ import com.desafioBackendAttornatus.DesafioAttornatus.dtos.PersonDto;
 import com.desafioBackendAttornatus.DesafioAttornatus.entities.Address;
 import com.desafioBackendAttornatus.DesafioAttornatus.entities.Person;
 import com.desafioBackendAttornatus.DesafioAttornatus.repositories.AddressRepository;
+import com.desafioBackendAttornatus.DesafioAttornatus.repositories.PersonRepository;
 import com.desafioBackendAttornatus.DesafioAttornatus.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +14,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class AddressService {
 
     @Autowired
     private AddressRepository addressRepository;
+
+    @Autowired
+    private PersonRepository personRepository;
 
     @Transactional
     public AddressDto saveAddress(AddressDto dto){
@@ -61,4 +67,5 @@ public class AddressService {
             throw new ResourceNotFoundException("Id " + id + " not found ");
         }
     }
+
 }

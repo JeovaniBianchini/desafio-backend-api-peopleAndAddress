@@ -2,6 +2,7 @@ package com.desafioBackendAttornatus.DesafioAttornatus.services;
 
 import com.desafioBackendAttornatus.DesafioAttornatus.dtos.PersonDto;
 import com.desafioBackendAttornatus.DesafioAttornatus.entities.Person;
+import com.desafioBackendAttornatus.DesafioAttornatus.repositories.AddressRepository;
 import com.desafioBackendAttornatus.DesafioAttornatus.repositories.PersonRepository;
 import com.desafioBackendAttornatus.DesafioAttornatus.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
@@ -19,6 +20,7 @@ public class PersonService {
 
     @Autowired
     private PersonRepository personRepository;
+
 
     @Transactional
     public PersonDto savePerson(PersonDto dto){
@@ -54,4 +56,8 @@ public class PersonService {
             throw new ResourceNotFoundException("Id " + id + " not found ");
         }
     }
+
+
+
+
 }
