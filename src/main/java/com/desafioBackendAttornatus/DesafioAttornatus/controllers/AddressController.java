@@ -1,6 +1,7 @@
 package com.desafioBackendAttornatus.DesafioAttornatus.controllers;
 
 import com.desafioBackendAttornatus.DesafioAttornatus.dtos.AddressDto;
+import com.desafioBackendAttornatus.DesafioAttornatus.dtos.AddressReturnDto;
 import com.desafioBackendAttornatus.DesafioAttornatus.dtos.PersonDto;
 import com.desafioBackendAttornatus.DesafioAttornatus.services.AddressService;
 import jakarta.validation.Valid;
@@ -49,8 +50,8 @@ public class AddressController {
 
 
     @GetMapping(value = "/person")
-    public ResponseEntity<List<AddressDto>> list(@RequestParam(value = "name") String name){
-        List<AddressDto> list = addressService.findByPerson(name);
+    public ResponseEntity<List<AddressReturnDto>> list(@RequestParam(value = "name") String name){
+        List<AddressReturnDto> list = addressService.findByPerson(name);
         return ResponseEntity.ok().body(list);
     }
 

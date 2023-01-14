@@ -1,6 +1,7 @@
 package com.desafioBackendAttornatus.DesafioAttornatus.services;
 
 import com.desafioBackendAttornatus.DesafioAttornatus.dtos.AddressDto;
+import com.desafioBackendAttornatus.DesafioAttornatus.dtos.AddressReturnDto;
 import com.desafioBackendAttornatus.DesafioAttornatus.dtos.PersonDto;
 import com.desafioBackendAttornatus.DesafioAttornatus.entities.Address;
 import com.desafioBackendAttornatus.DesafioAttornatus.entities.Person;
@@ -70,9 +71,9 @@ public class AddressService {
         }
     }
 
-    public List<AddressDto> findByPerson(String name){
+    public List<AddressReturnDto> findByPerson(String name){
         Person person = personRepository.findByName(name);
         List<Address> list = addressRepository.findByPerson(person);
-        return list.stream().map(x -> new AddressDto(x)).collect(Collectors.toList());
+        return list.stream().map(x -> new AddressReturnDto(x)).collect(Collectors.toList());
     }
 }
