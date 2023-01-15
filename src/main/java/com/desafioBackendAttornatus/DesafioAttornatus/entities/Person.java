@@ -20,7 +20,7 @@ public class Person implements Serializable {
     private LocalDate birthday;
 
     @OneToMany(mappedBy = "person")
-    private List<Address> adresses = new ArrayList<>();
+    private List<Address> addresses = new ArrayList<>();
 
     public Person(){
     }
@@ -55,7 +55,7 @@ public class Person implements Serializable {
         this.birthday = birthday;
     }
 
-    public List<Address> getAdresses() {
-        return adresses;
+    public List<Address> getAddresses() {
+        return addresses;
     }
 }
